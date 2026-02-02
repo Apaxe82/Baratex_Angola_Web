@@ -1,11 +1,13 @@
+// app/page.tsx
 import Hero from '@/components/Hero';
+import Navbar from '@/components/Navbar'; // Você criará este depois
 
 export default function Home() {
   return (
-    <main>
+    <main className="min-h-screen bg-white">
+      <Navbar />
       <Hero />
-      {/* Futuras secções como Serviços e Depoimentos entrarão aqui */}
+      {/* Próximas seções virão aqui */}
     </main>
   );
 }
-
