@@ -7,16 +7,17 @@ import WhatsAppWidget from "../components/WhatsAppWidget";
 
 export default function Home() {
   return (
-    <main>
+    <main className="bg-white">
       <Navbar />
       <Hero />
-      {/* Vamos deixar estes comentados por agora para ver se o topo do site aparece */}
-      {/* <About /> */}
+      <About /> {/* <-- Reativamos este agora */}
+      
+      {/* Mantenha estes dois comentados por um momento */}
       {/* <Contact /> */}
       {/* <WhatsAppWidget /> */}
       
-      <div className="bg-white p-10 text-center border-t">
-        <p className="text-baratexGreen font-bold">A Navbar e o Hero devem aparecer acima deste texto.</p>
+      <div className="bg-white p-10 text-center border-t text-gray-400 text-sm">
+        Baratex Angola &copy; 2024
       </div>
     </main>
   );
