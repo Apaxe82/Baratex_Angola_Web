@@ -4,7 +4,7 @@ import { ShieldCheck, Clock, PhoneCall } from 'lucide-react'; // Ícones para pa
 
 const Hero = () => {
   return (
-    <section className="relative bg-baratexGreen min-h-[85vh] flex items-center pt-20">
+    <section className="relative bg-baratexGreen text-white py-20 px-6 overflow-hidden">
       {/* Overlay decorativo para textura */}
       <div className="absolute inset-0 opacity-10 bg-[url('/texture-pest.png')] pointer-events-none"></div>
 

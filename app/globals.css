@@ -3,22 +3,27 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Definição direta das cores da Baratex */
+  --baratex-green: #2D5A27;
+  --baratex-green-dark: #1e3d1a;
 }
 
-/* Forçamos fundo branco para garantir visibilidade na Baratex */
-body {
-  background-color: white !important;
-  color: #171717;
-  font-family: Arial, Helvetica, sans-serif;
-  margin: 0;
-  padding: 0;
+@layer base {
+  body {
+    @apply bg-white text-gray-900;
+  }
 }
 
-/* Reset básico para garantir que o conteúdo não fique escondido sob a Navbar */
-main {
-  display: block;
-  width: 100%;
+/* Forçar utilitários de cor caso o tailwind.config não carregue */
+.bg-baratexGreen {
+  background-color: var(--baratex-green) !important;
+}
+
+.text-baratexGreen {
+  color: var(--baratex-green) !important;
+}
+
+.hover\:bg-baratexGreen-dark:hover {
+  background-color: var(--baratex-green-dark) !important;
 }
 
