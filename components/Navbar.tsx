@@ -8,7 +8,6 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  // Efeito para mudar o fundo ao fazer scroll
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
@@ -29,7 +28,7 @@ const Navbar = () => {
       scrolled ? 'bg-white shadow-md py-2' : 'bg-transparent py-4'
     }`}>
       <div className="container mx-auto px-6 flex justify-between items-center">
-        
+
         {/* Logo */}
         <Link href="/" className="flex items-center">
           <span className={`text-2xl font-black tracking-tighter italic ${
@@ -42,8 +41,8 @@ const Navbar = () => {
         {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center gap-8">
           {navLinks.map((link) => (
-            <Link 
-              key={link.name} 
+            <Link
+              key={link.name}
               href={link.href}
               className={`font-medium hover:text-baratexGreen transition-colors ${
                 scrolled ? 'text-gray-700' : 'text-white'
@@ -52,9 +51,9 @@ const Navbar = () => {
               {link.name}
             </Link>
           ))}
-          <Link 
-            href="#contacto" 
-            className="bg-baratexGreen text-white px-6 py-2 rounded-lg font-bold hover:bg-opacity-90 transition-all flex items-center gap-2"
+          <Link
+            href="#contacto"
+            className="bg-baratexGreen text-white px-6 py-2 rounded-lg font-bold flex items-center gap-2 hover:bg-opacity-90 transition-all"
           >
             <Phone size={18} />
             Orçamento
@@ -62,11 +61,15 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Menu Toggle */}
-        <button 
-          className="lg:hidden text-baratexGreen"
+        <button
+          className="lg:hidden"
           onClick={() => setIsOpen(!isOpen)}
         >
-          {isOpen ? <X size={30} /> : <Menu size={30} className={scrolled ? 'text-gray-900' : 'text-white'} />}
+          {isOpen ? (
+            <X size={30} className="text-gray-900" />
+          ) : (
+            <Menu size={30} className={scrolled ? 'text-gray-900' : 'text-white'} />
+          )}
         </button>
       </div>
 
@@ -75,27 +78,27 @@ const Navbar = () => {
         isOpen ? 'translate-x-0' : 'translate-x-full'
       }`}>
         <div className="flex flex-col items-center justify-center h-full gap-8">
-          <button 
+          <button
             onClick={() => setIsOpen(false)}
             className="absolute top-6 right-6 text-gray-900"
           >
             <X size={35} />
           </button>
-          
+
           {navLinks.map((link) => (
-            <Link 
-              key={link.name} 
+            <Link
+              key={link.name}
               href={link.href}
               onClick={() => setIsOpen(false)}
-              className="text-2xl font-bold text-gray-900 hover:text-baratexGreen"
+              className="text-2xl font-bold text-gray-900 hover:text-baratexGreen transition-colors"
             >
               {link.name}
             </Link>
           ))}
-          <Link 
+          <Link
             href="#contacto"
             onClick={() => setIsOpen(false)}
-            className="bg-baratexGreen text-white px-8 py-4 rounded-xl font-bold text-xl"
+            className="bg-baratexGreen text-white px-8 py-4 rounded-xl font-bold flex items-center gap-2"
           >
             Pedir Orçamento
           </Link>
