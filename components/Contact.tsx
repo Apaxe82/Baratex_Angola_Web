@@ -1,17 +1,23 @@
+"use client";
+
 import React from 'react';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, MessageSquare } from 'lucide-react';
 
 const Contact = () => {
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const target = e.currentTarget;
+  const primaryPhone = "929251620";
+  const altPhone = "957641422";
+  const emailAddress = "baratexangola@gmail.com";
 
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // Capturar dados do formulário
     const formData = {
-      nome: target.nome.value,
-      telefone: target.telefone.value,
-      email: target.email.value,
-      praga: target.praga.value,
-      mensagem: target.mensagem.value,
+      nome: (e.target as any).nome.value,
+      telefone: (e.target as any).telefone.value,
+      email: (e.target as any).email.value,
+      praga: (e.target as any).praga.value,
+      mensagem: (e.target as any).mensagem.value,
     };
 
     try {
@@ -23,12 +29,12 @@ const Contact = () => {
 
       if (response.ok) {
         alert("Pedido enviado com sucesso! A Baratex entrará em contacto.");
-        target.reset(); // Limpa o formulário
+        (e.target as HTMLFormElement).reset(); // Limpa o formulário após sucesso
       } else {
-        throw new Error();
+        alert("Erro ao enviar. Por favor, tente via WhatsApp.");
       }
     } catch (error) {
-      alert("Erro ao enviar. Por favor, tente via WhatsApp: +244 929 251 620");
+      alert("Ocorreu um erro de ligação. Tente o WhatsApp.");
     }
   };
 
@@ -42,7 +48,7 @@ const Contact = () => {
             <h2 className="text-baratexGreen font-bold text-sm uppercase tracking-widest mb-3">Fale Connosco</h2>
             <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Pronto para um ambiente <span className="text-baratexGreen">livre de pragas?</span></h3>
             <p className="text-gray-600 mb-8 text-lg">
-              A nossa equipa técnica está disponível 24/7 para responder às suas necessidades em Luanda.
+              A nossa equipa técnica está disponível 24/7 para responder às suas necessidades em Luanda e arredores. Entre em contacto para um orçamento gratuito.
             </p>
 
             <div className="space-y-6">
@@ -52,10 +58,39 @@ const Contact = () => {
                 </div>
                 <div>
                   <p className="text-sm text-gray-500 uppercase font-bold tracking-tight">Ligue agora (24/7)</p>
-                  <p className="text-lg font-bold text-gray-900">+244 929 251 620</p>
+                  <p className="text-lg font-bold text-gray-900">{primaryPhone} / {altPhone}</p>
                 </div>
               </div>
-              {/* Repetir para Email e Localização conforme o seu código original */}
+
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm text-baratexGreen">
+                  <Mail size={20} />
+                </div>
+                <div>
+                  <p className="text-sm text-gray-500 uppercase font-bold tracking-tight">E-mail</p>
+                  <p className="text-lg font-bold text-gray-900">{emailAddress}</p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm text-baratexGreen">
+                  <MapPin size={20} />
+                </div>
+                <div>
+                  <p className="text-sm text-gray-500 uppercase font-bold tracking-tight">Localização</p>
+                  <p className="text-lg font-bold text-gray-900">Luanda, Angola</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-10">
+              <a 
+                href={`https://wa.me/244${primaryPhone}`}
+                target="_blank"
+                className="inline-flex items-center gap-2 bg-[#25D366] text-white px-6 py-3 rounded-lg font-bold shadow-lg hover:bg-[#20ba5a] transition-all"
+              >
+                <MessageSquare size={20} /> Falar Directo no WhatsApp
+              </a>
             </div>
           </div>
 
@@ -63,18 +98,20 @@ const Contact = () => {
           <div className="bg-white p-8 md:p-10 rounded-2xl shadow-xl border border-gray-100">
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <input name="nome" required type="text" placeholder="Nome Completo" className="w-full p-4 bg-gray-50 rounded-lg border border-gray-200 outline-none focus:border-baratexGreen" />
-                <input name="telefone" required type="tel" placeholder="Telemóvel" className="w-full p-4 bg-gray-50 rounded-lg border border-gray-200 outline-none focus:border-baratexGreen" />
+                <input name="nome" type="text" placeholder="Nome Completo" required className="w-full p-4 bg-gray-50 rounded-lg border border-gray-200 focus:border-baratexGreen outline-none transition-all" />
+                <input name="telefone" type="tel" placeholder="Telemóvel" required className="w-full p-4 bg-gray-50 rounded-lg border border-gray-200 focus:border-baratexGreen outline-none transition-all" />
               </div>
-              <input name="email" required type="email" placeholder="E-mail" className="w-full p-4 bg-gray-50 rounded-lg border border-gray-200 outline-none focus:border-baratexGreen" />
-              <select name="praga" className="w-full p-4 bg-gray-50 rounded-lg border border-gray-200 outline-none focus:border-baratexGreen">
+              <input name="email" type="email" placeholder="E-mail" required className="w-full p-4 bg-gray-50 rounded-lg border border-gray-200 focus:border-baratexGreen outline-none transition-all" />
+              <select name="praga" className="w-full p-4 bg-gray-50 rounded-lg border border-gray-200 focus:border-baratexGreen outline-none transition-all text-gray-500">
                 <option value="">Tipo de Praga (Opcional)</option>
                 <option value="baratas">Baratas</option>
                 <option value="ratos">Ratos</option>
-                <option value="outros">Outros</option>
+                <option value="termitas">Térmitas/Cupins</option>
+                <option value="formigas">Formigas</option>
+                <option value="outros">Outros / Desinfecção</option>
               </select>
-              <textarea name="mensagem" required placeholder="Como podemos ajudar?" rows={4} className="w-full p-4 bg-gray-50 rounded-lg border border-gray-200 outline-none focus:border-baratexGreen"></textarea>
-              <button type="submit" className="w-full bg-baratexGreen text-white font-bold py-4 rounded-lg flex items-center justify-center gap-2 hover:bg-opacity-95 transition-all">
+              <textarea name="mensagem" placeholder="Como podemos ajudar?" rows={4} required className="w-full p-4 bg-gray-50 rounded-lg border border-gray-200 focus:border-baratexGreen outline-none transition-all"></textarea>
+              <button type="submit" className="w-full bg-baratexGreen text-white font-bold py-4 rounded-lg flex items-center justify-center gap-2 hover:bg-opacity-95 transition-all shadow-lg">
                 <Send size={18} /> Enviar Pedido de Orçamento
               </button>
             </form>
