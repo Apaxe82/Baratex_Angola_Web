@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+:root {
+  --baratex-green: #2D5A27;
+}
+
+body {
+  @apply bg-white text-gray-900;
+}
+
+/* Adicione aqui qualquer outro estilo global necessário */

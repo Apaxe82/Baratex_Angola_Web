@@ -23,7 +23,7 @@ export async function POST(request: Request) {
     const data = await resend.emails.send({
       from: 'Baratex Website <onboarding@resend.dev>',
       to: ['baratexangola@gmail.com'], // Atualizado conforme o seu pedido
-      reply_to: email, // Permite que responda ao cliente apenas clicando em "Responder" no Gmail
+      replyTo: email, // Permite que responda ao cliente apenas clicando em "Responder" no Gmail
       subject: `🦟 Orçamento: ${nome} - ${praga || 'Geral'}`,
       html: `
         <div style="font-family: sans-serif; max-width: 600px; color: #333;">
