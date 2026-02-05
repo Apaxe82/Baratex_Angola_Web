@@ -10,15 +10,14 @@ export default function Home() {
     <main className="bg-white">
       <Navbar />
       <Hero />
-      <About /> {/* <-- Reativamos este agora */}
+      <About />
+      <Contact /> {/* Ativando o Formulário */}
+      <WhatsAppWidget /> {/* Ativando o Botão Flutuante */}
       
-      {/* Mantenha estes dois comentados por um momento */}
-      {/* <Contact /> */}
-      {/* <WhatsAppWidget /> */}
-      
-      <div className="bg-white p-10 text-center border-t text-gray-400 text-sm">
-        Baratex Angola &copy; 2024
-      </div>
+      <footer className="bg-gray-900 text-white py-10 text-center text-sm">
+        <p>Baratex Angola &copy; {new Date().getFullYear()} - Todos os direitos reservados.</p>
+        <p className="opacity-50 mt-2 text-xs">Luanda, Angola</p>
+      </footer>
     </main>
   );
 }
