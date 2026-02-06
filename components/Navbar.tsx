@@ -32,46 +32,49 @@ const Navbar = () => {
       scrolled ? 'bg-white shadow-lg py-2' : 'bg-transparent py-4'
     }`}>
       <div className="container mx-auto px-6 flex justify-between items-center">
-        
-        {/* Logo com Imagem */}
+
+        {/* Logo e Nome da Empresa */}
         <Link href="/" className="flex items-center gap-3">
-          <div className="relative w-12 h-12 md:w-16 md:h-16">
-            <img 
+          <div className="relative w-10 h-10 md:w-12 md:h-12 overflow-hidden rounded-full border border-gray-100 bg-white">
+            <img
               src="/images/logo-baratex.jpg" 
-              alt="Baratex Logo" 
-              style={{ width: '150px', height: 'auto' }} // CSS inline garante o tamanho se o Tailwind falhar
-              className="w-32 md:w-40 h-auto" 
+              alt="Baratex Logo"
+              className="w-full h-full object-cover" 
             />
           </div>
-          <span className={`text-xl md:text-2xl font-black tracking-tighter italic hidden sm:block ${
-            scrolled ? 'text-gray-900' : 'text-white'
+          <span className={`text-xl md:text-2xl font-bold tracking-tighter italic ${
+            scrolled ? 'text-gray-900' : 'text-[#2D5A27]'
           }`}>
-            BARATEX<span className="text-baratexGreen">ANGOLA</span>
+            BARATEX<span className="text-[#2D5A27]">ANGOLA</span>
           </span>
         </Link>
 
         {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center gap-8">
           <div className="flex flex-col items-end mr-4">
-            <span className={`text-[10px] uppercase font-bold ${scrolled ? 'text-gray-500' : 'text-white/70'}`}>Emergência 24/7</span>
-            <span className={`text-sm font-bold ${scrolled ? 'text-baratexGreen' : 'text-white'}`}>{primaryPhone}</span>
+            <span className={`text-[10px] uppercase font-bold ${scrolled ? 'text-gray-500' : 'text-gray-700'}`}>
+              Ligue Agora
+            </span>
+            <span className={`text-sm font-bold ${scrolled ? 'text-[#2D5A27]' : 'text-gray-900'}`}>
+              {primaryPhone}
+            </span>
           </div>
-          
+
           {navLinks.map((link) => (
             <Link 
-              key={link.name} 
+              key={link.name}
               href={link.href}
-              className={`font-medium hover:text-baratexGreen transition-colors ${
-                scrolled ? 'text-gray-700' : 'text-white'
+              className={`font-medium hover:text-[#2D5A27] transition-colors ${
+                scrolled ? 'text-gray-700' : 'text-gray-900'
               }`}
             >
               {link.name}
             </Link>
           ))}
-          
+
           <Link 
-            href={`https://wa.me/244${primaryPhone}`} 
-            className="bg-baratexGreen text-white px-6 py-2 rounded-lg font-bold hover:scale-105 transition-all flex items-center gap-2 shadow-md"
+            href={`https://wa.me/244${primaryPhone}`}
+            className="flex items-center gap-2 bg-[#2D5A27] text-white px-6 py-2 rounded-lg font-bold hover:scale-105 transition-all shadow-md"
           >
             <MessageSquare size={18} />
             Orçamento
@@ -83,7 +86,11 @@ const Navbar = () => {
           className="lg:hidden p-2"
           onClick={() => setIsOpen(!isOpen)}
         >
-          {isOpen ? <X size={30} className="text-baratexGreen" /> : <Menu size={30} className={scrolled ? 'text-gray-900' : 'text-white'} />}
+          {isOpen ? (
+            <X size={30} className="text-[#2D5A27]" />
+          ) : (
+            <Menu size={30} className={scrolled ? 'text-gray-900' : 'text-[#2D5A27]'} />
+          )}
         </button>
       </div>
 
@@ -92,14 +99,16 @@ const Navbar = () => {
         isOpen ? 'translate-x-0' : 'translate-x-full'
       }`}>
         <div className="flex flex-col items-center justify-center h-full gap-8 px-6 text-center">
-          <Image src="/images/logo-baratex.jpg" alt="Logo" width={80} height={80} className="rounded-full mb-4" />
-          
+          <div className="w-24 h-24 overflow-hidden rounded-full shadow-xl mb-4">
+            <img src="/images/logo-baratex.jpg" alt="Logo" className="w-full h-full object-cover" />
+          </div>
+
           {navLinks.map((link) => (
             <Link 
               key={link.name} 
               href={link.href}
               onClick={() => setIsOpen(false)}
-              className="text-2xl font-bold text-gray-900"
+              className="text-2xl font-bold text-gray-900 hover:text-[#2D5A27]"
             >
               {link.name}
             </Link>
@@ -107,17 +116,18 @@ const Navbar = () => {
 
           <div className="space-y-4 w-full mt-4">
             <p className="text-gray-500 font-bold uppercase text-xs tracking-widest">Contactos Directos</p>
-            <a href={`tel:${primaryPhone}`} className="flex items-center justify-center gap-3 text-xl font-black text-baratexGreen">
-              <Phone size={24} /> {primaryPhone}
+            <a href={`tel:${primaryPhone}`} className="flex items-center justify-center gap-3 text-xl font-black text-gray-900">
+              <Phone size={24} className="text-[#2D5A27]" /> {primaryPhone}
             </a>
-            <a href={`tel:${altPhone}`} className="flex items-center justify-center gap-3 text-xl font-black text-gray-700">
-              <Phone size={24} /> {altPhone}
+            <a href={`tel:${altPhone}`} className="flex items-center justify-center gap-3 text-xl font-black text-gray-900">
+              <Phone size={24} className="text-[#2D5A27]" /> {altPhone}
             </a>
             <Link 
               href={`https://wa.me/244${primaryPhone}`}
               onClick={() => setIsOpen(false)}
-              className="block w-full bg-baratexGreen text-white py-4 rounded-xl font-bold text-xl shadow-lg"
+              className="flex items-center justify-center gap-2 w-full bg-[#2D5A27] text-white py-4 rounded-xl font-bold text-xl shadow-lg"
             >
+              <MessageSquare size={24} />
               Falar no WhatsApp
             </Link>
           </div>

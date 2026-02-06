@@ -36,11 +36,10 @@ const Hero = () => {
           {/* Coluna da Imagem (A Barata) */}
           <div className="w-full lg:w-1/2 px-4">
             <div className="relative z-10 inline-block pt-11 lg:pt-0">
-              <img
-                src="/images/logo-baratex.jpg"
-                alt="Mascote Baratex Angola"
-                className="max-w-full lg:ml-auto rounded-2xl shadow-2xl"
-                style={{ maxHeight: '450px', width: 'auto' }} 
+              <img 
+                src="/images/logo-baratex.jpg" 
+                className="rounded-xl shadow-lg border border-gray-100" 
+                style={{ maxWidth: '400px' }}
               />
               {/* Elemento decorativo para dar profundidade */}
               <span className="absolute -bottom-8 -left-8 z-[-1]">

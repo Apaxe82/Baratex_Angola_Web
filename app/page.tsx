@@ -1,10 +1,15 @@
 import Hero from '../components/Hero';
+import Services from '../components/Services';
+import ContactForm from '../components/ContactForm';
+import Footer from '../components/Footer';
 
 export default function Home() {
   return (
-    <div className="flex flex-col">
+    <>
       <Hero />
-      {/* Aqui poderá adicionar as seções de Serviços e Contacto depois */}
-    </div>
+      <Services />
+      <ContactForm />
+      <Footer />
+    </>
   );
 }
