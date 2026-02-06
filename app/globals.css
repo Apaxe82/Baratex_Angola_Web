@@ -1,5 +1,11 @@
 @import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
+@theme {
+  --color-baratex: #2D5A27;
+}
 :root {
   --baratex-green: #2D5A27;
 }

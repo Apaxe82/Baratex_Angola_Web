@@ -36,11 +36,11 @@ const Navbar = () => {
         {/* Logo com Imagem */}
         <Link href="/" className="flex items-center gap-3">
           <div className="relative w-12 h-12 md:w-16 md:h-16">
-            <Image 
+            <img 
               src="/images/logo-baratex.jpg" 
-              alt="Logo Baratex Angola" 
-              fill
-              className="object-contain rounded-full"
+              alt="Baratex Logo" 
+              style={{ width: '150px', height: 'auto' }} // CSS inline garante o tamanho se o Tailwind falhar
+              className="w-32 md:w-40 h-auto" 
             />
           </div>
           <span className={`text-xl md:text-2xl font-black tracking-tighter italic hidden sm:block ${
