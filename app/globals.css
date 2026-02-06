@@ -1,3 +1,12 @@
+html {
+  scroll-behavior: smooth;
+}
+
+/* Compensação para a Navbar Fixa */
+/* Isso evita que a Navbar tape o título da seção quando você clica no link */
+[id] {
+  scroll-margin-top: 80px;
+}
 @import "tailwindcss";
 
 /* Esta linha liga o CSS ao seu ficheiro de configuração v3 */
