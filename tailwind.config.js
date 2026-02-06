@@ -1,40 +1,50 @@
 /** @type {import('tailwindcss').Config} */
+const path = require('path');
+
 module.exports = {
+  // Garante que o Tailwind verifica todos os ficheiros onde usa classes
   content: [
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/**/*.{js,ts,jsx,tsx,mdx}", // Caso decida usar pasta src no futuro
   ],
   theme: {
     extend: {
       colors: {
-        // Verde principal da marca
+        // Definição exata da identidade visual da Baratex
         baratexGreen: {
           DEFAULT: '#2D5A27',
           dark: '#1e3d1a',
-          light: '#eaf2e9', // Útil para fundos de secções
+          light: '#eaf2e9',
         },
-        // Vermelho para alertas/emergências (ex: botões de perigo ou ratos)
         baratexRed: '#D32F2F',
-        // Cinza suave para backgrounds e textos secundários
         baratexGray: '#F4F7F4',
       },
-      // Configuração para o container ficar sempre centrado por padrão
+      // Configuração de containers para garantir que o site não "estique" demasiado em ecrãs grandes
       container: {
         center: true,
-        padding: '1.5rem',
-      },
-      // Animação para o botão de WhatsApp que criamos antes
-      keyframes: {
-        pulseCustom: {
-          '0%, 100%': { transform: 'scale(1)', opacity: '1' },
-          '50%': { transform: 'scale(1.05)', opacity: '0.8' },
-        }
+        padding: {
+          DEFAULT: '1rem',
+          sm: '2rem',
+          lg: '4rem',
+          xl: '5rem',
+          '2xl': '6rem',
+        },
       },
       animation: {
         'button-pulse': 'pulseCustom 2s infinite',
-      }
+      },
+      keyframes: {
+        pulseCustom: {
+          '0%, 100%': { transform: 'scale(1)', opacity: '1' },
+          '50%': { transform: 'scale(1.05)', opacity: '0.9' },
+        }
+      },
     },
   },
-  plugins: [],
+  // Plugins que ajudam na tipografia e em aspetos visuais
+  plugins: [
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/forms'),
+  ],
 };

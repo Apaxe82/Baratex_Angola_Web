@@ -1,17 +1,17 @@
 @import "tailwindcss";
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
-@theme {
-  --color-baratex: #2D5A27;
-}
-:root {
-  --baratex-green: #2D5A27;
-}
+/* Esta linha liga o CSS ao seu ficheiro de configuração v3 */
+@config "../tailwind.config.js";
 
-body {
-  @apply bg-white text-gray-900;
+@layer base {
+  body {
+    background-color: white;
+    color: #1a1a1a;
+  }
 }
 
-/* Adicione aqui qualquer outro estilo global necessário */
+/* Em vez de @apply, vamos usar CSS padrão para garantir o build */
+h1 {
+  color: #2D5A27;
+  font-bold: 700;
+}

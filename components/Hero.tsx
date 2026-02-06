@@ -1,74 +1,55 @@
-// components/Hero.tsx
 import React from 'react';
-import { ShieldCheck, Clock, PhoneCall } from 'lucide-react';
 
 const Hero = () => {
-  const primaryPhone = "929251620";
-  const whatsappUrl = `https://wa.me/244${primaryPhone}?text=Olá! Preciso de um orçamento para desinfestação.`;
-
   return (
-    <section className="relative bg-baratexGreen min-h-[85vh] flex items-center pt-24 overflow-hidden">
-      {/* Overlay decorativo */}
-      <div className="absolute inset-0 opacity-5 bg-[url('https://www.transparenttextures.com/patterns/pinstriped-suit.png')] pointer-events-none"></div>
-
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
+    <section className="relative bg-white pt-20 pb-12 lg:pt-[120px] lg:pb-[90px] overflow-hidden">
+      <div className="container mx-auto px-4">
+        <div className="flex flex-wrap items-center -mx-4">
           
-          <div className="lg:w-1/2 text-white">
-            <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 px-4 py-2 rounded-full mb-6">
-              <Clock size={18} className="text-white" />
-              <span className="text-sm font-medium">Serviço de Emergência 24/7 em Angola</span>
-            </div>
-            
-            <h1 className="text-4xl md:text-6xl font-extrabold leading-tight mb-6">
-              Adeus Pragas, <br/><span className="text-white underline decoration-white/30 text-3xl md:text-5xl">Olá Saúde e Bem-Estar</span>
-            </h1>
-            
-            <p className="text-lg md:text-xl text-white/80 mb-8 max-w-xl">
-              Desinfestação profissional em Luanda. Ligue agora para o <span className="text-white font-bold">{primaryPhone}</span> e resolva o seu problema hoje mesmo.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4">
-              <a 
-                href={whatsappUrl}
-                target="_blank"
-                className="flex items-center justify-center gap-2 bg-white text-baratexGreen px-8 py-4 rounded-lg font-bold text-lg hover:scale-105 transition-all shadow-xl"
-              >
-                <PhoneCall size={20} />
-                Pedir Orçamento Grátis
-              </a>
-              <a 
-                href="#servicos"
-                className="flex items-center justify-center gap-2 border-2 border-white/30 px-8 py-4 rounded-lg font-bold text-lg hover:bg-white/10 transition-all"
-              >
-                Ver Serviços
-              </a>
-            </div>
-
-            <div className="mt-10 flex flex-wrap gap-6 border-t border-white/10 pt-8">
-              <div className="flex items-center gap-2">
-                <ShieldCheck className="text-white" />
-                <span className="text-sm opacity-90">Certificação Oficial</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <ShieldCheck className="text-white" />
-                <span className="text-sm opacity-90">Garantia Baratex</span>
+          {/* Coluna do Texto */}
+          <div className="w-full lg:w-1/2 px-4 mb-12 lg:mb-0">
+            <div className="max-w-[570px]">
+              <h1 className="text-[#2D5A27] font-bold text-4xl sm:text-5xl md:text-[50px] leading-tight mb-6">
+                Adeus Pragas, <br />
+                <span className="text-gray-800">Olá Saúde e Bem-Estar</span>
+              </h1>
+              <p className="text-gray-600 text-lg leading-relaxed mb-10">
+                Proteja a sua família ou empresa com a Baratex Angola. Especialistas em desinfestação 24h em Luanda. Resultados rápidos e garantidos.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <a
+                  href="https://wa.me/244929251620"
+                  className="inline-flex items-center justify-center py-4 px-8 text-white font-semibold bg-[#2D5A27] rounded-lg hover:bg-opacity-90 transition-all shadow-lg hover:shadow-xl"
+                >
+                  Pedir Orçamento Grátis
+                </a>
+                <a
+                  href="#servicos"
+                  className="inline-flex items-center justify-center py-4 px-8 text-[#2D5A27] font-semibold bg-gray-100 rounded-lg hover:bg-gray-200 transition-all"
+                >
+                  Nossos Serviços
+                </a>
               </div>
             </div>
           </div>
 
-          <div className="lg:w-1/2 relative">
-             <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white/10">
-              <img 
-                src="/images/logo-baratex.jpg" 
-                alt="Baratex Angola em ação" 
-                className="w-full h-auto object-cover max-h-[500px]"
+          {/* Coluna da Imagem (A Barata) */}
+          <div className="w-full lg:w-1/2 px-4">
+            <div className="relative z-10 inline-block pt-11 lg:pt-0">
+              <img
+                src="/images/logo-baratex.jpg"
+                alt="Mascote Baratex Angola"
+                className="max-w-full lg:ml-auto rounded-2xl shadow-2xl"
+                style={{ maxHeight: '450px', width: 'auto' }} 
               />
-              <div className="absolute bottom-6 -left-6 bg-white p-4 rounded-xl shadow-lg hidden md:block">
-                <p className="text-baratexGreen font-bold flex items-center gap-2 italic">
-                   Ligue: {primaryPhone}
-                </p>
-              </div>
+              {/* Elemento decorativo para dar profundidade */}
+              <span className="absolute -bottom-8 -left-8 z-[-1]">
+                <svg width="93" height="93" viewBox="0 0 93 93" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="2.5" cy="2.5" r="2.5" fill="#2D5A27" />
+                  <circle cx="2.5" cy="24.5" r="2.5" fill="#2D5A27" />
+                  {/* ... outros círculos do padrão ... */}
+                </svg>
+              </span>
             </div>
           </div>
 
